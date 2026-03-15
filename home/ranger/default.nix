@@ -1,0 +1,7 @@
+{ ... }:
+
+{
+  imports = [
+    ./ranger.nix
+  ];
+}

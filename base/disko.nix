@@ -2,7 +2,7 @@
   disko.devices = {
     nodev."/" = {
       fsType = "tmpfs";
-      mountOptions = [ "relatime" "nosuid" "nodev" "size=4G" "mode=755" ];
+      mountOptions = ["relatime" "nosuid" "nodev" "size=4G" "mode=755"];
     };
     disk.main = {
       type = "disk";
@@ -23,15 +23,15 @@
             size = "100%";
             content = {
               type = "btrfs";
-              extraArgs = [ "-f" ];
+              extraArgs = ["-f"];
               subvolumes = {
                 "@nix" = {
                   mountpoint = "/nix";
-                  mountOptions = [ "compress=zstd" "noatime" ];
+                  mountOptions = ["compress=zstd" "noatime"];
                 };
                 "@persist" = {
                   mountpoint = "/persist";
-                  mountOptions = [ "compress=zstd" "noatime" ];
+                  mountOptions = ["compress=zstd" "noatime"];
                 };
               };
             };

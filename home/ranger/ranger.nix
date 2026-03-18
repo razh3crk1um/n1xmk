@@ -1,18 +1,16 @@
-{ 
+{
   pkgs,
   config,
   ...
-}:
-
-{
+}: {
   xdg.configFile."ranger/scope.sh" = {
     source = "${pkgs.ranger}/share/doc/ranger/config/scope.sh";
-    executable = true; # 必须有执行权限
+    executable = true; # important
   };
 
   programs.ranger = {
     enable = true;
-    
+
     settings = {
       #preview_images_method = "ueberzug";
       preview_images_method = "kitty";
@@ -102,7 +100,7 @@
     #  qall = "quitall";
     #  qall! = " quitall!";
     #  setl = "setlocal";
-    #  
+    #
     #  filter = "scout -prts";
     #  find = "scout -aets";
     #  mark = "scout -mr";

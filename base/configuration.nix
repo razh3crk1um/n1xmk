@@ -1,8 +1,8 @@
-{ pkgs, inputs, ... }: {
-
+{...}: {
   imports = [
     ./hardware-configuration.nix
     ./home.nix
+
     ../system/persistence.nix
     ../system/system.nix
     ../system/security.nix

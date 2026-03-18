@@ -1,9 +1,4 @@
-{
-  pkgs,
-  ...
-}:
-
-{
+{pkgs, ...}: {
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
@@ -13,7 +8,7 @@
     #colorschemes.tokyonight.enable = true;
 
     colorscheme = "molokai";
-    extraPlugins = [ pkgs.vimPlugins.molokai ];
+    extraPlugins = [pkgs.vimPlugins.molokai];
 
     opts = {
       number = true;
@@ -31,13 +26,13 @@
       scrolloff = 7;
       ruler = true;
       conceallevel = 0;
-      
+
       wrap = false;
       linebreak = true;
       #textwidth = 80;
       colorcolumn = "80";
       copyindent = true;
-      
+
       ignorecase = true;
       hlsearch = true;
       incsearch = true;
@@ -47,9 +42,9 @@
       #hidden = true;
       #wildmenu = true;
 
-      foldmethod = "expr";  # syntax, expr
+      foldmethod = "expr"; # syntax, expr
       foldenable = false;
       fileencodings = "utf-8,gbk";
     };
-   };
+  };
 }

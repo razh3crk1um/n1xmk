@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.nixvim.plugins = {
     lualine.enable = true;
 
@@ -15,7 +13,7 @@
 
     web-devicons.enable = true;
     indent-blankline.enable = true;
-    
+
     comment = {
       enable = true;
       settings = {
@@ -45,15 +43,15 @@
       keymaps = {
         "<leader>ff" = "find_files";
         "<leader>fg" = "live_grep";
-	"<leader>fm" = "oldfiles";
-	"<leader>fb" = "buffers";
+        "<leader>fm" = "oldfiles";
+        "<leader>fb" = "buffers";
       };
     };
     treesitter = {
-        enable = true;
-        settings.ensure_installed = [ "nix" "c" "cpp" "lua" "markdown" ];
-      };
-    
+      enable = true;
+      settings.ensure_installed = ["nix" "c" "cpp" "lua" "markdown"];
+    };
+
     neo-tree.enable = true;
     hop.enable = true;
     markdown-preview.enable = true;

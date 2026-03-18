@@ -1,6 +1,4 @@
-{ ... }:
-
-{
+{...}: {
   programs.nixvim.plugins = {
     lsp = {
       enable = true;
@@ -21,7 +19,7 @@
         "gD" = "declaration";
         "gr" = "references";
         "gi" = "implementation";
-        "K"  = "hover";
+        "K" = "hover";
         "<leader>rn" = "rename";
         "<leader>ca" = "code_action";
       };
@@ -32,10 +30,10 @@
       settings = {
         autoEnableSources = true;
         sources = [
-          { name = "nvim_lsp"; }
-          { name = "luasnip"; }
-          { name = "path"; }
-          { name = "buffer"; }
+          {name = "nvim_lsp";}
+          {name = "luasnip";}
+          {name = "path";}
+          {name = "buffer";}
         ];
         mapping = {
           "<Tab>" = "cmp.mapping.select_next_item()";
@@ -48,10 +46,10 @@
     none-ls = {
       enable = true;
       sources.formatting = {
-        alejandra.enable = true;      # Nix
-        black.enable = true;          # Python
-        gofmt.enable = true;          # Go
-        clang_format.enable = true;   # C/C++
+        alejandra.enable = true; # Nix
+        black.enable = true; # Python
+        gofmt.enable = true; # Go
+        clang_format.enable = true; # C/C++
       };
     };
 

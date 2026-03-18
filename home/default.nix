@@ -1,5 +1,5 @@
 {pkgs, ...}: let
-  myScripts = import ./scripts {inherit pkgs;};
+  scripts = import ./scripts {inherit pkgs;};
 in {
   home = {
     username = "razh3crk1um";
@@ -26,6 +26,7 @@ in {
         blender
         bottles
         brave
+        lx-music-desktop
         reaper
         #reaper-sws-extension
         #reaper-reapack-extension
@@ -70,23 +71,6 @@ in {
         rose-pine-cursor
         adwaita-icon-theme
 
-        # as modules
-        #niri
-        #zsh
-        #alacritty
-        #ghostty
-        #tmux
-        #waybar
-        #yazi
-        #fuzzel
-        #mpd
-        #ncmpcpp
-        #mako
-        #hyprlock
-        #hypridle
-        #home-manager
-        #cava
-
         #pciutils
         #usbutils
 
@@ -95,11 +79,8 @@ in {
         #v2rayn
         #v2ray-geoip
         #v2ray-domain-list-community
-        #ranger
-        #ueberzugpp
-        #zellij
       ]
-      ++ (builtins.attrValues myScripts);
+      ++ (builtins.attrValues scripts);
   };
 
   programs.home-manager.enable = true;
@@ -126,5 +107,6 @@ in {
 
     #./ranger
     #./zellij
+    #./hypr
   ];
 }

@@ -1,24 +1,26 @@
-{ 
-  ...
-}:
-
 {
+  dna,
+  lib,
+  ...
+}: let
+  c = dna.colors;
+in {
   programs.fuzzel = {
     enable = true;
-    
+
     settings = {
       main = {
-        font = "Sarasa Mono SC:size=18";
-        terminal = "alacritty";
+        font = "${dna.font.family}:size=${toString dna.font.size_lg}";
+        #terminal = "alacritty";
         layer = "overlay";
       };
       colors = {
-        background = "1b1d1eff";
-        text = "ffffffff";
-        match = "df005fff";
-        selection = "555555ff";
-        selection-text = "87ff00ff";
-        border = "df005fff";
+        background = "${lib.removePrefix "#" c.black}ff";
+        text = "${lib.removePrefix "#" c.bright_white}ff";
+        match = "${lib.removePrefix "#" c.red}ff";
+        selection = "${lib.removePrefix "#" c.bright_black}ff";
+        selection-text = "${lib.removePrefix "#" c.bright_green}ff";
+        border = "${lib.removePrefix "#" c.red}ff";
       };
       border = {
         width = 1;

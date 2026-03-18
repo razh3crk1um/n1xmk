@@ -1,30 +1,20 @@
-{ 
-  config,
-  ...
-}:
+{dna, ...}: {
+  home.file = {
+    ".local/share/fcitx5/rime/default.custom.yaml".text = ''
+      patch:
+        "menu/page_size": 7
+        schema_list:
+          - schema: double_pinyin_flypy
+    '';
 
-{
-  #xdg.configFile."fcitx5/rime/default.custom.yaml".text = ''
-  #  patch:
-  #    "menu/page_size": 7
-  #    schema_list:
-  #      - schema: double_pinyin_flypy
-  #'';
+    ".local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml".source = ./double_pinyin_flypy.schema.yaml;
 
-  home.file.".local/share/fcitx5/rime/default.custom.yaml".text = ''
-    patch:
-      "menu/page_size": 7
-      schema_list:
-        - schema: double_pinyin_flypy
-  '';
-
-  home.file.".local/share/fcitx5/rime/double_pinyin_flypy.schema.yaml".source = ./double_pinyin_flypy.schema.yaml;
-
-  home.file.".local/share/fcitx5/themes/spring-pink" = {
-    source = ./spring-pink;
-    recursive = true;
+    ".local/share/fcitx5/themes/spring-pink" = {
+      source = ./spring-pink;
+      recursive = true;
+    };
   };
-  
+
   xdg.configFile."fcitx5/conf/classicui.conf" = {
     text = ''
       # Vertical Candidate List
@@ -32,11 +22,11 @@
       # Use mouse wheel to go to prev or next page
       WheelForPaging=True
       # Font
-      Font="Sans 14"
+      Font="${dna.font.family} ${toString dna.font.size_md}"
       # Menu Font
-      MenuFont="Sans 14"
+      Font="${dna.font.family} ${toString dna.font.size_md}"
       # Tray Font
-      TrayFont="Sans Bold 14"
+      Font="${dna.font.semibold} ${toString dna.font.size_md}"
       # Tray Label Outline Color
       TrayOutlineColor=#000000
       # Tray Label Text Color
@@ -62,7 +52,7 @@
       ForceWaylandDPI=0
       # Enable fractional scale under Wayland
       EnableFractionalScale=True
-      
+
       # 按屏幕 DPI 使用
       PerScreenDPI=True
     '';

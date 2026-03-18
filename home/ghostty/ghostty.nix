@@ -1,5 +1,5 @@
-{myColors, ...}: let
-  c = myColors.colors;
+{dna, ...}: let
+  c = dna.colors;
 in {
   programs.ghostty = {
     enable = true;
@@ -18,8 +18,8 @@ in {
         "alt+d=scroll_page_down"
       ];
 
-      font-family = "Sarasa Mono CL Semibold";
-      #font-size = 12;
+      font-family = dna.font.family;
+      font-size = dna.font.size;
       background = c.bg;
       background-opacity = 0.7;
       foreground = c.fg;
@@ -37,14 +37,14 @@ in {
         "5=${c.magenta}"
         "6=${c.cyan}"
         "7=${c.white}"
-        "8=${c.lightblack}"
-        "9=${c.lightred}"
-        "10=${c.lightgreen}"
-        "11=${c.lightyellow}"
-        "12=${c.lightblue}"
-        "13=${c.lightmagenta}"
-        "14=${c.lightcyan}"
-        "15=${c.lightwhite}"
+        "8=${c.bright_black}"
+        "9=${c.bright_red}"
+        "10=${c.bright_green}"
+        "11=${c.bright_yellow}"
+        "12=${c.bright_blue}"
+        "13=${c.bright_magenta}"
+        "14=${c.bright_cyan}"
+        "15=${c.bright_white}"
       ];
     };
   };

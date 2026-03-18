@@ -1,8 +1,10 @@
 {
   pkgs,
-  #inputs,
+  dna,
   ...
-}: {
+}: let
+  c = dna.colors;
+in {
   programs.niri = {
     enable = true;
     package = pkgs.niri;
@@ -39,16 +41,6 @@
           dwt = true;
           natural-scroll = true;
         };
-
-        #mouse = {
-        #  accel-speed = 0.0;
-        #  accel-profile = "flat";
-        #  scroll-method = "no-scroll";
-        #  natural-scroll = false;
-        #};
-
-        #warp-mouse-to-focus = false;
-        #focus-follows-mouse max-scroll-amount = "0%";
       };
 
       outputs = {
@@ -68,8 +60,8 @@
       };
 
       cursor = {
-        size = 32;
-        theme = "BreezeX-RosePine-Linux";
+        theme = dna.cursor.theme;
+        size = dna.cursor.size;
       };
 
       layout = {
@@ -92,10 +84,10 @@
           enable = false;
           width = 2;
           active = {
-            color = "#06040400";
+            color = "${c.bg}00";
           };
           inactive = {
-            color = "#06040400";
+            color = "${c.bg}00";
           };
         };
 
@@ -103,10 +95,10 @@
           enable = true;
           width = 2;
           active = {
-            color = "#df005f";
+            color = c.red;
           };
           inactive = {
-            color = "#060404";
+            color = c.bg;
           };
         };
 
@@ -139,34 +131,7 @@
         # misc
         MOZ_ENABLE_WAYLAND = "1";
         CLUTTER_BACKEND = "wayland";
-
-        # fcitx
-        #XMODIFIERS = "@im=fcitx";
-        #QT_IM_MODULE  =  "fcitx";
-        #QT_IM_MODULES =  "fcitx";
-        #SDL_IM_MODULE =  "fcitx";
-        ## firefox-fcitx5 blink
-        #GTK_IM_MODULE =  null;
-
-        #DISPLAY = ":0";
-        #SDL_VIDEODRIVER = "wayland";
-        #EGL_PLATFORM = "wayland";
-        #NIXRO_OZONE_WL = "1";
-        #XKB_DEFAULT_VARIANT = "dvorak";
-        #HTTPS_PROXY = "192.168.253.126:2080";
-        #HTTP_PROXY = "$HTTPS_PROXY";
       };
-
-      #shadow = {
-      #  enable = true;
-      #  softness = 30;
-      #  spread = 5;
-      #  offset = {
-      #    x = 0;
-      #    y = 5;
-      #  };
-      #  color = "#0007";
-      #};
     };
   };
 }

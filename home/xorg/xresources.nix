@@ -1,35 +1,41 @@
-{config, ...}: {
+{
+  config,
+  dna,
+  ...
+}: let
+  c = dna.colors;
+in {
   xresources = {
     path = "${config.xdg.configHome}/xorg/Xresources";
     properties = {
       "Xft.dpi" = 192;
-      "Xcursor.theme" = "BreezeX-RosePine-Linux";
-      "Xcursor.size" = 24;
+      "Xft.rgba" = "rgb";
+      "Xcursor.theme" = dna.cursor.theme;
+      "Xcursor.size" = dna.cursor.size_x;
 
+      "*.color0" = "${c.black}";
+      "*.color1" = "${c.red}";
+      "*.color2" = "${c.green}";
+      "*.color3" = "${c.yellow}";
+      "*.color4" = "${c.blue}";
+      "*.color5" = "${c.magenta}";
+      "*.color6" = "${c.cyan}";
+      "*.color7" = "${c.white}";
+      "*.color8" = "${c.bright_black}";
+      "*.color9" = "${c.bright_red}";
+      "*.color10" = "${c.bright_green}";
+      "*.color11" = "${c.bright_yellow}";
+      "*.color12" = "${c.bright_blue}";
+      "*.color13" = "${c.bright_magenta}";
+      "*.color14" = "${c.bright_cyan}";
+      "*.color15" = "${c.bright_white}";
       #"bar-background" = "#1a1a1a";
-      "*.color0" = "#1b1d1e";
-      "*.color1" = "#d7005f";
-      "*.color2" = "#44ff00";
-      "*.color3" = "#ff8700";
-      "*.color4" = "#1f75fe";
-      "*.color5" = "#932fff";
-      "*.color6" = "#00d7af";
-      "*.color7" = "#bcbcbc";
-      "*.color8" = "#555555";
-      "*.color9" = "#d40000";
-      "*.color10" = "#87ff00";
-      "*.color11" = "#ffd000";
-      "*.color12" = "#0087ff";
-      "*.color13" = "#af5fff";
-      "*.color14" = "#00ddff";
-      "*.color15" = "#ffffff";
 
       #"Xft.autohint" = 1;
       #"Xft.lcdfilter" = "lcddefault";
       #"Xft.hintstyle" = "hintfull";
       #"Xft.hiting" = 1;
       #"Xft.antialias" = 1;
-      "Xft.rgba" = "rgb";
     };
   };
 }

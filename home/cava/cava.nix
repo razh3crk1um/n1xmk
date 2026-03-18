@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  dna,
+  ...
+}: {
   programs.cava = {
     enable = true;
     package = pkgs.cava;
@@ -13,8 +17,8 @@
         gradient = 1;
         gradient_count = 4;
 
-        gradient_color_1 = "'#d7005f'"; # bottom
-        gradient_color_2 = "'#d40000'"; # top
+        gradient_color_1 = "'${dna.colors.red}'"; # bottom
+        gradient_color_2 = "'${dna.colors.bright_red}'"; # top
       };
     };
   };

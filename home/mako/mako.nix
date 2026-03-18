@@ -1,107 +1,105 @@
-{ 
-  ...
-}:
-
-{
+{dna, ...}: let
+  c = dna.colors;
+in {
   services.mako = {
     enable = true;
-    
+
     settings = {
       # max no of notification in buffer
-      max-history=5;
-      
+      max-history = 5;
+
       # arrange notification ( +/- time or +/- priority )
-      sort="-time";
-      
+      sort = "-time";
+
       # [ BINDING OPTIONS ]
-      # Supported values: none, dismiss, dismiss-all, 
+      # Supported values: none, dismiss, dismiss-all,
       # dismiss-group, invoke-default-action & exec <command>
-      
-      on-button-left="invoke-default-action";
-      on-button-middle="dismiss-group";
-      on-button-right="dismiss-all";
-      on-touch="invoke-default-action";
+
+      on-button-left = "invoke-default-action";
+      on-button-middle = "dismiss-group";
+      on-button-right = "dismiss-all";
+      on-touch = "invoke-default-action";
       # on-notify=exec mpv /usr/share/sounds/freedesktop/stereo/message.oga
-      
+
       # [ STYLE OPTIONS ]
       # which installed font for notification( any font installed )
-      font="Sarasa Mono CL Semibold 12";
-      
+      font = "${dna.font.semibold} ${toString dna.font.size}";
+
       # background color of notification( #RRGGBB | #RRGGBBAA )
       # background-color="#2e3440";
-      background-color="#33393f";
-      
+      background-color = "#33393f";
+
       # Text color inside the notification( #RRGGBB | #RRGGBBAA )
-      text-color="#FFFFFF";
+      text-color = c.bright_white;
       # text-color="#ffffef";
-      
+
       # Set width of notification popup.( value in px )
-      width=299;
-      
+      width = 299;
+
       # maximum height of notification( value in px )
-      height=99;
-      
+      height = 99;
+
       # margin of notification which is margin for the list of notification block( value in px ).
-      outer-margin=1;
+      outer-margin = 1;
       # Margin of each individual notification
-      margin=5;
-      
+      margin = 5;
+
       # Set padding on each side to the size specified by directional( value in px )
-      padding=8;
-      
+      padding = 8;
+
       #Set popup border size to px pixels.(value in px )
-      border-size=2;
-      
+      border-size = 2;
+
       # color of border of each notification( #RRGGBB | #RRGGBBAA )
-      border-color="#d7005f";
-      
+      border-color = c.red;
+
       # bordear radious of each notification(value in px )
-      border-radius=15;
-      
+      border-radius = 15;
+
       # Set popup progress indicator color to color.( value [over|source] ( #RRGGBB | #RRGGBBAA ))
-      progress-color="over #0b1c1c";
-      
+      progress-color = "over #0b1c1c";
+
       # Show icons in notifications.( value: -1 | 1 )
-      icons=1;
-      
+      icons = 1;
+
       #  Set maximum icon size to px pixels.(value in px)
-      max-icon-size=34;
-      
+      max-icon-size = 34;
+
       # Paths to search for icons when a notification specifies a name instead of a full path.(value path[:path...] )
-      
+
       #  Position of the icon relative to the displayed text.(value: left | right | top | bottom )
-      icon-location="left";
-      
+      icon-location = "left";
+
       # enable pango - format notification( value 0|1 )
       # markup=1;
-      
+
       #  Applications may request an action( value 0|1 )
-      actions=1;
-      
+      actions = 1;
+
       # mako will save notifications that have reached their timeout into the history buffer in‐
       # stead of immediately deleting them.
-      history=1;
-      
+      history = 1;
+
       # Set notification format string to format.( value: see format in man 5 mako)
-      format= "<b>%s</b>\\n%b";
-      
+      format = "<b>%s</b>\\n%b";
+
       #  Set notification text alignment.( value: left|right|center )
-      text-alignment="left";
-      
+      text-alignment = "left";
+
       # Set the default timeout to timeout in milliseconds.
-      default-timeout=7000;
-      
+      default-timeout = 7000;
+
       # If set, mako will ignore the expire timeout(value: 0|1 )
-      ignore-timeout=0;
-      
-      # Set maximum number of visible notifications 
-      max-visible=5;
-      
+      ignore-timeout = 0;
+
+      # Set maximum number of visible notifications
+      max-visible = 5;
+
       # Arrange mako at the specified layer, relative to normal windows.(value: background, bottom, top, overlay )
-      layer="overlay";
-      
+      layer = "overlay";
+
       # Show notifications at the specified position on the output.
-      anchor="top-right";
+      anchor = "top-right";
     };
   };
 }

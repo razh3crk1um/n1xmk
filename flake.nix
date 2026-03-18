@@ -42,7 +42,7 @@
       system = "x86_64-linux";
       specialArgs = {
         inherit inputs;
-        myColors = import ./assets/theme.nix;
+        dna = import ./assets/theme.nix;
       };
       modules = [
         inputs.disko.nixosModules.disko

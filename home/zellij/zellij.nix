@@ -1,5 +1,5 @@
-{myColors, ...}: let
-  c = myColors.colors;
+{dna, ...}: let
+  c = dna.colors;
 in {
   programs.zellij = {
     enable = true;
@@ -56,11 +56,11 @@ in {
       molokai = {
         themes.molokai = {
           fg = c.white;
-          bg = c.lightblack;
+          bg = c.bright_black;
 
           red = c.red;
-          green = c.lightgreen;
-          yellow = c.lightyellow;
+          green = c.bright_green;
+          yellow = c.bright_yellow;
           blue = c.blue;
           magenta = c.magenta;
           cyan = c.cyan;

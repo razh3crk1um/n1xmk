@@ -1,4 +1,6 @@
-{...}: {
+{dna, ...}: let
+  f = dna.font;
+in {
   programs.waybar = {
     enable = true;
     settings = {
@@ -87,15 +89,14 @@
           all-outputs = true;
           format-icons = {
             "1" = "";
-            "2" = "<span font-family=\"Font Awesome 7 Brands\"></span>";
+            "2" = "<span font-family='${f.glyphs.brands}'></span>";
             "3" = "";
-            "4" = "<span font-family=\"Font Awesome 7 Brands\"></span>";
+            "4" = "<span font-family='${f.glyphs.brands}'></span>";
             "5" = "";
             "6" = "";
             "7" = "";
             "8" = "";
-            #"5" = "<span font-family=\"Font Awesome 7 Free Solid\"></span>";
-            #"6" = "";
+            #"9" = "";
             "default " = "";
           };
         };
@@ -131,8 +132,8 @@
         };
         "clock" = {
           #timezone = "Asia/ShangHai";
-          format = "<span font-family=\"Font Awesome 7 Free Solid\"></span> {:%H:%M}";
-          format-alt = "<span font-family=\"Font Awesome 7 Free Solid\"></span> {:%Y-%m-%d}";
+          format = "<span font-family='${f.glyphs.solid}'></span> {:%H:%M}";
+          format-alt = "<span font-family='${f.glyphs.solid}'></span> {:%Y-%m-%d}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
         };
         "cpu" = {

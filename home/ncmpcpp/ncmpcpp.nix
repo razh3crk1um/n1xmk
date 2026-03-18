@@ -1,8 +1,4 @@
-{
-  config,
-  ...
-}:
-{
+{config, ...}: {
   programs.ncmpcpp = {
     enable = true;
     settings = {
@@ -56,11 +52,22 @@
       browser_sort_mode = "name";
     };
     bindings = [
-      { key="j"; command = "scroll_down"; }
-      { key="k"; command = "scroll_up"; }
-      { key="n"; command = "next_found_item"; }
-      { key="N"; command = "previous_found_item"; }
+      {
+        key = "j";
+        command = "scroll_down";
+      }
+      {
+        key = "k";
+        command = "scroll_up";
+      }
+      {
+        key = "n";
+        command = "next_found_item";
+      }
+      {
+        key = "N";
+        command = "previous_found_item";
+      }
     ];
   };
 }
-

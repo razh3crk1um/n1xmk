@@ -14,7 +14,6 @@
   # nh
   programs.nh = {
     enable = true;
-    #flake = "/etc/nixos";
 
     clean = {
       enable = true;
@@ -22,12 +21,16 @@
     };
   };
 
-  # hardware
+  # systemd-boot
   boot.loader = {
-    grub.fontSize = 32;
+    grub.enable = false;
+
+    systemd-boot = {
+      enable = true;
+      configurationLimit = 10;
+    };
+
     efi.canTouchEfiVariables = true;
-    systemd-boot.enable = true;
-    systemd-boot.configurationLimit = 10;
   };
   #boot.supportedFilesystems = ["ntfs"];
 

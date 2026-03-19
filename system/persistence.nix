@@ -1,4 +1,8 @@
-{inputs, ...}: {
+{
+  inputs,
+  dna,
+  ...
+}: {
   imports = [inputs.impermanence.nixosModules.impermanence];
 
   # persist
@@ -24,7 +28,7 @@
       "/etc/machine-id"
     ];
 
-    users.razh3crk1um = {
+    users."${dna.user}" = {
       directories = [
         ".ssh"
         ".pki"

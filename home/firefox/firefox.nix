@@ -1,10 +1,14 @@
-{config, ...}: {
+{
+  config,
+  dna,
+  ...
+}: {
   home.file.".mozilla/native-messaging-hosts".enable = false;
   programs.firefox = {
     enable = true;
     configPath = "${config.xdg.configHome}/mozilla/firefox";
 
-    profiles.razh3crk1um = {
+    profiles."${dna.user}" = {
       id = 0;
       isDefault = true;
       settings = {

@@ -33,17 +33,6 @@
   # hyprlock
   security.pam.services.hyprlock = {};
 
-  # graphics amd
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true;
-    #extraPackages = with pkgs; [
-    #  mesa
-    #  libva
-    #  #rocmPackages.clr
-    #];
-  };
-
   # input method
   i18n.inputMethod = {
     enable = true;

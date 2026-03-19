@@ -53,12 +53,12 @@
   };
 
   home.sessionVariables = {
-    EDITOR = "nvim";
     NH_FLAKE = "$HOME/.n1xmk";
+    EDITOR = "nvim";
 
     # colorful output
-    MANPAGER = "sh -c 'col -bx | ${pkgs.bat}/bin/bat -l man -p'";
-    MANROFFOPT = "-c"; # 配合某些系统下的渲染优化
+    MANPAGER = "sh -c 'col -bx | bat -l man -p'";
+    MANROFFOPT = "-c";
     LESS = "-g -i -M -R -S -w -F -X";
 
     XKB_DEFAULT_LAYOUT = "us";

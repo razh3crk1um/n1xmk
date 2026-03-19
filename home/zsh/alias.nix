@@ -1,7 +1,7 @@
 {...}: {
   programs.zsh.shellAliases = {
     fw = "export ALL_PROXY=socks5://127.0.0.1:10808";
-    uv = "unset ALL_PROXY";
+    uw = "unset ALL_PROXY";
 
     # eza
     l = "eza -ah --group-directories-first --icons=auto";

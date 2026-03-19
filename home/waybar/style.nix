@@ -232,7 +232,7 @@ in {
           border-top: 2px solid @color5;
       }
 
-      #pulseaudio:hover
+      #pulseaudio:hover,
       #wireplumber:hover {
           background-color: @color5;
           color: @color0;

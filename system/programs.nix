@@ -1,7 +1,12 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  inputs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
     git
     vim
+    inputs.agenix.packages."x86_64-linux".default
     #inputs.nixpkgs-tun-fix.legacyPackages.${pkgs.stdenv.hostPlatform.system}.clash-verge-rev
   ];
 

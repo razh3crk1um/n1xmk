@@ -23,6 +23,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #niri.url = "github:YaLTeR/niri";
     niri = {
       url = "github:sodiboo/niri-flake";
@@ -46,7 +51,7 @@
       };
       modules = [
         inputs.disko.nixosModules.disko
-        ./base/disko.nix
+        inputs.agenix.nixosModules.default
         ./base/configuration.nix
       ];
     };

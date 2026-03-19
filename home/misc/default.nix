@@ -2,7 +2,7 @@
   imports = [
     ./ffconfig.nix
     ./desktop.nix
-    ./git.nix
+    ./identity.nix
     #./v2rayn-core-ln.nix
   ];
 }

@@ -1,9 +1,13 @@
-{pkgs, ...}: let
+{
+  pkgs,
+  dna,
+  ...
+}: let
   scripts = import ./scripts {inherit pkgs;};
 in {
   home = {
-    username = "razh3crk1um";
-    homeDirectory = "/home/razh3crk1um";
+    username = dna.user;
+    homeDirectory = "/home/${dna.user}";
     stateVersion = "25.11";
 
     packages = with pkgs;

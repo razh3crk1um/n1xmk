@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  dna,
   ...
 }: {
   # debug backdoor
@@ -9,10 +10,10 @@
   users.mutableUsers = false;
   users.users.root.hashedPasswordFile = config.age.secrets."root-password".path;
 
-  users.users.razh3crk1um = {
+  users.users."${dna.user}" = {
     isNormalUser = true;
-    group = "razh3crk1um";
-    description = "razh3crk1um";
+    group = dna.user;
+    description = dna.user;
 
     uid = 1000;
     shell = pkgs.zsh;
@@ -20,5 +21,5 @@
 
     hashedPasswordFile = config.age.secrets."user-password".path;
   };
-  users.groups.razh3crk1um.gid = 1000;
+  users.groups."${dna.user}".gid = 1000;
 }

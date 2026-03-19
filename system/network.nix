@@ -1,6 +1,7 @@
 {
   pkgs,
   inputs,
+  dna,
   ...
 }: {
   # cache mirrors list
@@ -18,9 +19,8 @@
 
   # network & base pkgs
   networking = {
-    hostName = "m1uq0m5-n1xmk";
+    hostName = dna.host;
     #nameservers = [ "127.0.0.1" "::1" ];
-    #nameservers = ["127.0.0.1"];
     nameservers = ["1.1.1.1" "223.5.5.5"];
     enableIPv6 = false;
 
@@ -28,7 +28,6 @@
       enable = true;
       dns = "none";
     };
-    #resolvconf.enable = false;
 
     nftables.enable = true;
     firewall = {
@@ -42,16 +41,6 @@
       rejectPackets = true;
     };
   };
-
-  # dnscrypt
-  services.dnscrypt-proxy = {
-    enable = false;
-    settings = {
-      server_names = ["cloudflare" "google"];
-      listen_addresses = ["127.0.0.1:53"];
-    };
-  };
-
   services.resolved.enable = false;
 
   # proxy
@@ -66,5 +55,14 @@
     tunMode = true;
     serviceMode = true;
     #autoStart = true;
+  };
+
+  # dnscrypt
+  services.dnscrypt-proxy = {
+    enable = false;
+    settings = {
+      server_names = ["cloudflare" "google"];
+      listen_addresses = ["127.0.0.1:53"];
+    };
   };
 }

@@ -12,7 +12,7 @@
       inherit inputs dna;
     };
 
-    users.razh3crk1um = {
+    users."${dna.user}" = {
       imports = [
         ../home/default.nix
       ];

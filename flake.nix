@@ -42,12 +42,13 @@
     };
   };
 
-  outputs = {nixpkgs, ...} @ inputs: {
-    nixosConfigurations.m1uq0m5-n1xmk = nixpkgs.lib.nixosSystem {
+  outputs = {nixpkgs, ...} @ inputs: let
+    dna = import ./assets/dna.nix;
+  in {
+    nixosConfigurations."${dna.host}" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = {
-        inherit inputs;
-        dna = import ./assets/theme.nix;
+        inherit inputs dna;
       };
       modules = [
         inputs.disko.nixosModules.disko

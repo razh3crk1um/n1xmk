@@ -18,7 +18,7 @@ in {
         "alt+d=scroll_page_down"
       ];
 
-      font-family = dna.font.family;
+      font-family = dna.font.semibold;
       font-size = dna.font.size;
       background = c.bg;
       background-opacity = 0.7;

@@ -6,6 +6,7 @@
 
     ../system/agenix.nix
     ../system/desktop.nix
+    ../system/graphics.nix
     ../system/network.nix
     ../system/persistence.nix
     ../system/programs.nix

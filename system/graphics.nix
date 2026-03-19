@@ -14,9 +14,8 @@
 
     # amd
     (lib.mkIf (dna.gpu == "amd") {
-      hardware.graphics.extraPackages = with pkgs; [
-        amdvlk
-      ];
+      #hardware.graphics.extraPackages = with pkgs; [
+      #];
     })
 
     # nvidia

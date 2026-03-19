@@ -75,7 +75,7 @@
     };
 
     initContent = ''
-        ${builtins.readFile ./lgfs_prompt.sh}
+      ${builtins.readFile ./lgfs_prompt.sh}
 
       rn() {
         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"

@@ -73,7 +73,7 @@ in {
       ];
       image = {
         monitor = "";
-        path = "${../../assets/wallpapers/square-red-highlands-brown-moutains.jpg}";
+        path = "${../../assets/preview/lock-avatar.jpg}";
         size = 300;
         rounding = -1;
         border_color = "rgb(${lib.removePrefix "#" c.red})";

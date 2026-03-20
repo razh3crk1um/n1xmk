@@ -40,6 +40,7 @@ in {
         mpc
         yt-dlp
         wl-clipboard
+        ffmpeg
         cliphist
         libnotify
         zathura

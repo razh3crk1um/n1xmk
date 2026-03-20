@@ -1,7 +1,9 @@
 {...}: {
   programs.nixvim.plugins = {
+    # lualine
     lualine.enable = true;
 
+    # bufferline
     bufferline = {
       enable = true;
       settings.options = {
@@ -11,9 +13,13 @@
       };
     };
 
-    web-devicons.enable = true;
+    # indent-blankline
     indent-blankline.enable = true;
 
+    # web-devicons
+    web-devicons.enable = true;
+
+    # comment
     comment = {
       enable = true;
       settings = {
@@ -22,7 +28,10 @@
       };
     };
 
+    # vim-surround
     vim-surround.enable = true;
+
+    # fugitive
     fugitive.enable = true;
     gitsigns = {
       enable = true;
@@ -38,6 +47,7 @@
       '';
     };
 
+    # telescope
     telescope = {
       enable = true;
       keymaps = {
@@ -47,14 +57,30 @@
         "<leader>fb" = "buffers";
       };
     };
+
+    # treesitter
     treesitter = {
       enable = true;
       settings.ensure_installed = ["nix" "c" "cpp" "lua" "markdown"];
     };
 
+    # neo-tree
     neo-tree.enable = true;
+
+    # hop
     hop.enable = true;
-    markdown-preview.enable = true;
+
+    # visual-multi
     visual-multi.enable = true;
+
+    # markdown-preview
+    markdown-preview = {
+      enable = true;
+      settings = {
+        auto_start = 0;
+        auto_close = 1;
+        refresh_slow = 0;
+      };
+    };
   };
 }

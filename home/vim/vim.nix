@@ -5,8 +5,8 @@
     viAlias = true;
     vimAlias = true;
     globals.mapleader = ";";
-    #colorschemes.tokyonight.enable = true;
 
+    #colorschemes.monokai-pro.enable = true;
     colorscheme = "molokai";
     extraPlugins = [pkgs.vimPlugins.molokai];
 

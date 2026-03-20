@@ -1,5 +1,56 @@
 {...}: {
   programs.nixvim.keymaps = [
+    # neo tree
+    {
+      mode = "n";
+      key = "<leader>tt";
+      action = ":Neotree toggle<CR>";
+      options = {
+        desc = "Neotree Toggle";
+      };
+    }
+
+    # hop
+    {
+      mode = "n";
+      key = "s";
+      action = ":HopChar1<CR>";
+    }
+    {
+      mode = "n";
+      key = "<leader>n";
+      action = ":HopLine<CR>";
+    }
+
+    # markdown-preview
+    {
+      mode = "n";
+      key = "<leader>mp";
+      action = "<cmd>MarkdownPreview<cr>";
+      options = {
+        desc = "Open Markdown Preview";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>ms";
+      action = "<cmd>MarkdownPreviewStop<cr>";
+      options = {
+        desc = "Stop Markdown Preview";
+        silent = true;
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>mt";
+      action = "<cmd>MarkdownPreviewToggle<cr>";
+      options = {
+        desc = "Toggle Markdown Preview";
+        silent = true;
+      };
+    }
+
     # --- 行首行尾快速跳转 ---
     {
       mode = ["n" "v"];
@@ -153,25 +204,6 @@
       mode = "n";
       key = "<space>n";
       action = ":bn<CR>";
-    }
-
-    # neo tree
-    {
-      mode = "n";
-      key = "<leader>ff";
-      action = ":Neotree toggle<CR>";
-    }
-
-    # hop
-    {
-      mode = "n";
-      key = "s";
-      action = ":HopChar1<CR>";
-    }
-    {
-      mode = "n";
-      key = "<leader>l";
-      action = ":HopLine<CR>";
     }
   ];
 }

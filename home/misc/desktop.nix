@@ -35,6 +35,10 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
+        # file manager
+        "inode/directory" = ["pcmanfm.desktop"];
+
+        # html
         "text/html" = ["firefox.desktop"];
         "x-scheme-handler/http" = ["firefox.desktop"];
         "x-scheme-handler/https" = ["firefox.desktop"];

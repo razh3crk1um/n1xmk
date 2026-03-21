@@ -24,6 +24,14 @@
   # envfs
   services.envfs.enable = true;
 
+  # xdg portal
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [pkgs.xdg-desktop-portal-gtk];
+    config.common.default = "gtk";
+  };
+
   # hm
   environment.pathsToLink = [
     "/share/applications"

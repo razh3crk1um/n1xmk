@@ -106,7 +106,7 @@
           {
             run = "cd ~/spawn";
             on = ["g" "d"];
-            desc = "spawn";
+            desc = "~/spawn";
           }
           {
             run = "cd ~/.local/share";
@@ -118,28 +118,31 @@
             on = ["g" "b"];
             desc = "~/.local/share/Trash";
           }
-
           {
             run = "cd ~/media/pictures/screenshots";
             on = ["g" "s"];
-            desc = "screenshots";
+            desc = "~/media/pictures/screenshots";
           }
           {
             run = "cd ~/media/music";
             on = ["g" "m"];
-            desc = "music";
-          }
-          {
-            run = "cd ~/media/ardour";
-            on = ["g" "o"];
-            desc = "ardour";
+            desc = "~/media/media/music";
           }
           {
             run = "cd ~/media/vocaloid/pjs";
             on = ["g" "v"];
-            desc = "vocaloid";
+            desc = "~/media/vocaloid/pjs";
           }
-
+          {
+            run = "cd ~/.n1xmk";
+            on = ["g" "n"];
+            desc = "~/.n1xmk";
+          }
+          {
+            run = "back";
+            on = ["g" "'"];
+            desc = "switch to last directory";
+          }
           {
             run = "shell 'trash-put \"$@\"' ";
             on = ["d" "d"];

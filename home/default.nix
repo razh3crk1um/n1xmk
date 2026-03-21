@@ -12,44 +12,41 @@ in {
 
     packages = with pkgs;
       [
-        xrdb
-        xdg-utils
+        # --- desktop ---
         android-tools
         cryptsetup
         setxkbmap
-
-        swaybg
+        xdg-utils
+        xrdb
         xwayland-satellite
 
-        firefox
-        vscodium
-        obs-studio
-        telegram-desktop
-        gimp
-        openutau
-        blender
-        bottles
-        brave
-        lx-music-desktop
-        reaper
-        #reaper-sws-extension
-        #reaper-reapack-extension
-
-        imv
-        mpv
-        mpc
-        yt-dlp
         wl-clipboard
-        ffmpeg
         cliphist
         libnotify
-        zathura
-        localsend
         wireplumber
         pulseaudio
         pavucontrol
         brightnessctl
 
+        # --- monitor ---
+        btop
+        pcmanfm
+        ncdu
+        trash-cli
+        tree
+
+        # --- daily ---
+        firefox
+        vscodium
+        telegram-desktop
+        bottles
+        localsend
+        brave
+
+        aria2
+        yt-dlp
+
+        # --- dev ---
         gcc
         cmake
         gnumake
@@ -60,16 +57,34 @@ in {
         uv
         python3
 
-        jq
-        tree
+        # --- media production ---
+        imagemagick
+        ffmpeg
+        gimp
+        obs-studio
+        openutau
+        blender
+        reaper
+        #reaper-sws-extension
+        #reaper-reapack-extension
+
+        # --- media viewer ---
+        imv
+        mpc
+        mpv
+        zathura
+        lx-music-desktop
+
+        # --- modern ---
         bat
-        btop
-        ncdu
         eza
         fzf
+        ouch
         ripgrep
-        trash-cli
+        jq
 
+        # --- theme ---
+        swaybg
         lolcat
         pfetch
         fastfetch

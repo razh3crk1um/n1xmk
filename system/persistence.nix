@@ -21,7 +21,7 @@
       "/var/lib/nixos"
       "/var/lib/bluetooth"
       "/var/lib/NetworkManager"
-      "/var/lib/systemd/coredump"
+      "/var/lib/systemd"
     ];
 
     files = [
@@ -34,15 +34,12 @@
         ".pki"
         ".gnupg"
         ".config"
-        ".local/share"
-        ".local/state"
+        ".local"
 
         ".tmux"
         ".steam"
         ".cache/mozilla"
         ".cache/nvim"
-        ".cache/prezto"
-        ".cache/fontconfig"
 
         ".n1xmk"
         "spawn"
@@ -55,7 +52,6 @@
       ];
 
       files = [
-        #".bash_history"
         ".cache/fuzzel"
         ".cache/cliphist/db"
       ];

@@ -13,7 +13,10 @@
       isDefault = true;
       settings = {
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+        # network
         "media.peerconnection.enabled" = false;
+        "network.proxy.socks_remote_dns" = true;
         "network.dns.disableIPv6" = true;
       };
 

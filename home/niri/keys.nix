@@ -3,6 +3,10 @@
     terminal = "ghostty";
     launcher = "fuzzel";
 
+    mpc_status = "mpc status | grep -q 'playing' && echo '▶ 正在播放' || echo '⏸ 已暂停'";
+    mpc_title = "mpc current -f %file% | sed 's|.*/||; s/\\.[^.]*$//'";
+    #mpc_title = "mpc current -f %file% | sed 's|.*/||'"; # with extension
+
     # wireplumber
     #volume-up = spawn ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"];
     #volume-down = spawn ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"];
@@ -30,9 +34,9 @@
     "super+shift+f11".action = brightness-up;
     "super+e".action = spawn ["mpc" "next"];
     "super+shift+semicolon".action = spawn ["mpc" "prev"];
-    "super+shift+e".action = spawn-sh "mpc toggle && notify-send '歌曲暂停/恢复' \"$(ncmpcpp -q --current-song=%f)\"";
-    "super+shift+space".action = spawn-sh "mpc toggle && notify-send '歌曲暂停/恢复' \"$(ncmpcpp -q --current-song=%f)\"";
-    "super+shift+d".action = spawn-sh "notify-send '正在播放' \"$(ncmpcpp -q --current-song=%f)\"";
+    "super+shift+e".action = spawn-sh "mpc toggle && notify-send \"$(${mpc_status})\" \"$(${mpc_title})\"";
+    "super+shift+space".action = spawn-sh "mpc toggle && notify-send \"$(${mpc_status})\" \"$(${mpc_title})\"";
+    "super+shift+d".action = spawn-sh "notify-send \"$(${mpc_status})\" \"$(${mpc_title})\"";
     "super+d".action = spawn-sh "cliphist list | fuzzel --dmenu --lines 20 --width 75 | cliphist decode | wl-copy";
 
     "super+grave".action.screenshot = [];

@@ -47,7 +47,7 @@
       current_item_inactive_column_suffix = "red";
       window_border_color = "yellow";
       active_window_border = "magenta";
-      execute_on_song_change = ''notify-send "正在播放" "$(ncmpcpp -q --current-song=%f)"'';
+      execute_on_song_change = ''sh -c 'notify-send "$(mpc status | sed -n "s/^\[\(playing\)\].*/▶ 正在播放/p; s/^\[\(paused\)\].*/⏸ 已暂停/p")" "$(mpc current -f %file% | sed "s|.*/||; s/\.[^.]*$//")"' '';
       allow_for_physical_item_deletion = "yes";
       browser_sort_mode = "name";
     };

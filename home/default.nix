@@ -70,8 +70,8 @@ in {
 
         # --- media viewer ---
         imv
-        mpc
         mpv
+        mpc
         zathura
         lx-music-desktop
 
@@ -117,6 +117,7 @@ in {
     ./mako
     ./yazi
     ./mpd
+    ./rmpc
     ./ncmpcpp
     ./fuzzel
     ./fcitx

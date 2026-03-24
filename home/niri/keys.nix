@@ -3,9 +3,12 @@
     terminal = "ghostty";
     launcher = "fuzzel";
 
-    mpc_status = "mpc status | grep -q 'playing' && echo '▶ 正在播放' || echo '⏸ 已暂停'";
-    mpc_title = "mpc current -f %file% | sed 's|.*/||; s/\\.[^.]*$//'";
+    # mpc
+    mpc-status = "mpc status | grep -q 'playing' && echo '▶ 正在播放' || echo '⏸ 已暂停'";
+    mpc-title = "mpc current -f %file% | sed 's|.*/||; s/\\.[^.]*$//'";
     #mpc_title = "mpc current -f %file% | sed 's|.*/||'"; # with extension
+    mpc-notify = "notify-send \"$(${mpc-status})\" \"$(${mpc-title})\"";
+    mpc-toggle-notify = "mpc toggle && ${mpc-notify}";
 
     # wireplumber
     #volume-up = spawn ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"];
@@ -23,7 +26,7 @@
     brightness-down = spawn ["brightnessctl" "set" "5%-"];
   in {
     "super+return".action = spawn terminal;
-    "super+shift+return".action = spawn launcher;
+    "super+shift+space".action = spawn launcher;
     "super+shift+backspace".action = close-window;
 
     "super+o".action = volume-down;
@@ -34,16 +37,16 @@
     "super+shift+f11".action = brightness-up;
     "super+e".action = spawn ["mpc" "next"];
     "super+shift+semicolon".action = spawn ["mpc" "prev"];
-    "super+shift+e".action = spawn-sh "mpc toggle && notify-send \"$(${mpc_status})\" \"$(${mpc_title})\"";
-    "super+shift+space".action = spawn-sh "mpc toggle && notify-send \"$(${mpc_status})\" \"$(${mpc_title})\"";
-    "super+shift+d".action = spawn-sh "notify-send \"$(${mpc_status})\" \"$(${mpc_title})\"";
+    "super+shift+e".action = spawn-sh mpc-toggle-notify;
+    "super+space".action = spawn-sh mpc-toggle-notify;
+    "super+shift+d".action = spawn-sh mpc-notify;
     "super+d".action = spawn-sh "cliphist list | fuzzel --dmenu --lines 20 --width 75 | cliphist decode | wl-copy";
 
-    "super+grave".action.screenshot = [];
-    "super+u".action.screenshot-window = {write-to-disk = true;};
-    "super+shift+u".action.screenshot-screen = {write-to-disk = true;};
+    "super+u".action.screenshot = [];
+    "super+shift+u".action.screenshot-window = {write-to-disk = true;};
+    "super+shift+t".action.screenshot-screen = {write-to-disk = true;};
 
-    "super+space".action = toggle-overview;
+    "super+grave".action = toggle-overview;
     "super+f".action = fullscreen-window;
     "super+shift+f".action = toggle-window-floating;
     "super+p".action = switch-focus-between-floating-and-tiling;

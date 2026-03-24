@@ -9,7 +9,6 @@
     la = "eza -lbhHigUmuSa --time-style=long-iso --git --icons=auto";
     #las = "eza -lbF --git --total-size --group-directories-first icons=auto";
 
-    # trash-cli
     tp = "trash-put";
     tl = "trash-list";
 
@@ -26,37 +25,34 @@
     nv = "nvim";
     vim = "nvim";
     VIM = "vim";
-    emacs = "vim";
-    #pc = "proxychains4";
-    #alias -s bz2="tar -xjvf"
-
-    #alias -s c="vim"
-    #alias -s cc="vim"
-    #alias -s cpp="vim"
-    #alias -s gz="tar -xzvf"
-    #alias -s tgz="tar -xzvf"
 
     cip = "curl cip.cc";
     wea = "curl wttr.in/shenzhen";
     nocap = "amixer set Capture nocap";
 
     # git
+    g = "git";
+    gst = "git status";
     ga = "git add";
     gac = "git add . && git commit -m";
-    gbr = "git branch";
-    gco = "git checkout";
-    gcb = "git checkout -b";
     gc = "git commit -m";
-    gd = "git diff";
-    gp = "git push";
-    gpm = "git push -u origin master";
-    gl = "git pull";
-    glm = "git pull origin master";
+    gca = "git commit --amend --no-edit";
+
+    gsw = "git switch";
+    gsc = "git switch -c";
+    grs = "git restore --staged";
+    grw = "git restore";
+
+    gbr = "git branch";
     gm = "git merge";
-    gst = "git status";
-    glola = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all";
-    glols = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --stat";
-    lg = "lazygit";
+    gp = "git push";
+    gpl = "git pull";
+    gph = "git push --set-upstream origin $(git symbolic-ref --short HEAD)";
+
+    gd = "git diff";
+    gdc = "git diff --cached";
+    glo = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --all";
+    gls = "git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --stat";
 
     # cpp
     ctg = "ctags -R --c++-kinds=+px --fields=+niazs --extras=+q -f .tags";

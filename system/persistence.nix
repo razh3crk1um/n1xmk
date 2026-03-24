@@ -53,7 +53,6 @@
 
       files = [
         ".cache/fuzzel"
-        ".cache/cliphist/db"
       ];
     };
   };

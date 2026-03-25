@@ -53,10 +53,11 @@
     "super+shift+p".action = toggle-column-tabbed-display;
 
     "super+f5".action = spawn-sh "loginctl lock-session && sleep 0.2 && systemctl suspend";
-    "super+alt+f5".action = spawn ["loginctl" "lock-session"];
-    "super+shift+f5".action = quit;
-    "super+f6".action = spawn ["mpr"];
-    "super+shift+f6".action = spawn ["btr"];
+    "super+shift+f5".action = spawn ["loginctl" "lock-session"];
+    "super+alt+f5".action = quit;
+    "super+f6".action = spawn ["btr"];
+    "super+shift+f6".action = spawn ["mpr"];
+    "super+alt+f6".action = spawn ["pkill" "-USR2" "waybar"];
 
     "super+m".action = maximize-column;
     "super+shift+m".action = switch-preset-column-width;

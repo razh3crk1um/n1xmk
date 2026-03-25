@@ -92,7 +92,7 @@ in {
       #custom-archlogo,
       #custom-nixlogo {
           font-family: ${f.nerd};
-          font-size: ${toString f.size_md};
+          font-size: ${toString f.size_md}px;
           background: @color0;
           color:@color4;
       }

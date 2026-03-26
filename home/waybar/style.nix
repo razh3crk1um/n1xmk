@@ -37,6 +37,28 @@ in {
           color: @color14;
       }
 
+      #clock,
+      #battery,
+      #cpu,
+      #memory,
+      #disk,
+      #temperature,
+      #backlight,
+      #network,
+      #pulseaudio,
+      #wireplumber,
+      #tray,
+      #mode,
+      #idle_inhibitor,
+      #scratchpad,
+      #power-profiles-daemon,
+      #mpd {
+          background-color: @color0;
+          padding: 0 6px;
+          color: @color7;
+
+      }
+
       button {
           /* Use box-shadow instead of border so the text isn't offset */
           /*box-shadow: inset 0 -3px transparent;*/
@@ -89,15 +111,29 @@ in {
           background-color: @color1;
       }
 
+      #idle_inhibitor,
       #custom-archlogo,
       #custom-nixlogo {
           font-family: ${f.nerd};
-          font-size: ${toString f.size_md}px;
           background: @color0;
           color:@color4;
       }
 
-      #custom-lu, #custom-ld, #custom-ru, #custom-rd {
+      @keyframes color-breathe {
+          from {
+              color: @color4;
+          }
+          to {
+              color: @color14;
+          }
+      }
+
+      #idle_inhibitor.activated {
+          color:@color14;
+          /*animation: color-breathe 2s ease-in-out infinite alternate;*/
+      }
+
+      #custom-tr, #custom-tl, #custom-br, #custom-bl {
           font-family: ${f.nerd};
           font-size: 20px;
 
@@ -109,40 +145,17 @@ in {
           color: @color0;
       }
 
-      #custom-lu, #custom-ld {
+      #custom-tr, #custom-tl {
           box-shadow: inset 0 -2px 0 0 @color0;
       }
 
-      #custom-ru, #custom-rd {
+      #custom-br, #custom-bl {
           box-shadow: inset 0 2px 0 0 @color0;
       }
 
       #custom-ar{
           color: @color8;
           background-color:@color0;
-      }
-
-      #clock,
-      #battery,
-      #cpu,
-      #memory,
-      #disk,
-      #temperature,
-      #backlight,
-      #network,
-      #pulseaudio,
-      #wireplumber,
-      #custom-media,
-      #tray,
-      #mode,
-      #idle_inhibitor,
-      #scratchpad,
-      #power-profiles-daemon,
-      #mpd {
-          background-color: @color0;
-          padding: 0 6px;
-          color: @color7;
-
       }
 
       #window,
@@ -172,16 +185,6 @@ in {
           /*padding: 0 10px;*/
       }
 
-      #clock {
-          color: @color4;
-          border-top: 2px solid @color4;
-      }
-
-      #battery {
-          color: @color6;
-          border-top: 2px solid @color6;
-      }
-
       /*
       #battery.critical:not(.charging) {
           background-color: #f53c3c;
@@ -205,6 +208,11 @@ in {
           background-color: @color0;
       }
 
+      #network {
+          color: @color2;
+          border-top: 2px solid @color2;
+      }
+
       #cpu {
           color: @color11;
           border-top: 2px solid @color11;
@@ -215,16 +223,10 @@ in {
           border-top: 2px solid @color3;
       }
 
-      #network {
-          color: @color2;
-          border-top: 2px solid @color2;
+      #temperature {
+          color: @color9;
+          border-top: 2px solid @color9;
       }
-
-      /*
-      #network.disconnected {
-          color: @color2;
-      }
-      */
 
       #pulseaudio,
       #wireplumber {
@@ -238,13 +240,14 @@ in {
           color: @color0;
       }
 
-      #temperature {
-          color: @color9;
-          border-top: 2px solid @color9;
+      #battery {
+          color: @color6;
+          border-top: 2px solid @color6;
       }
 
-      #temperature.critical {
-          color: @color9;
+      #clock {
+          color: @color4;
+          border-top: 2px solid @color4;
       }
 
       #tray {
@@ -252,6 +255,7 @@ in {
           border-top: 2px solid rgba(85, 85, 85, 0.8);
       }
 
+      /*
       #tray > .passive {
           -gtk-icon-effect: dim;
       }
@@ -260,28 +264,11 @@ in {
           -gtk-icon-effect: highlight;
           background-color: #eb4d4b;
       }
+      */
 
       #mpd {
           color: @color1;
           padding-top: 2px;
-      }
-
-      /*
-      #mpd.disconnected {
-          background-color: #f53c3c;
-      }
-
-      #mpd.stopped {
-          background-color: #90b1b1;
-      }
-
-      #mpd.paused {
-          background-color: #51a37a;
-      }
-      */
-
-      #idle_inhibitor {
-        color: @color1;
       }
 
       tooltip {

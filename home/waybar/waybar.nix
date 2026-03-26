@@ -13,62 +13,63 @@ in {
         reload_style_on_change = true;
 
         modules-left = [
-          "custom/archlogo"
-          "custom/ld"
+          "idle_inhibitor"
+          #"custom/archlogo"
+          "custom/tl"
 
-          "custom/ru"
+          "custom/br"
           "niri/workspaces"
-          "custom/rd"
+          "custom/bl"
         ];
         modules-center = [
-          "custom/lu"
+          "custom/tr"
           #"idle_inhibitor"
           "mpd"
-          "custom/ld"
+          "custom/tl"
 
-          "custom/ru"
+          "custom/br"
           "niri/window"
-          "custom/rd"
+          "custom/bl"
         ];
         modules-right = [
-          "custom/lu"
+          "custom/tr"
           "network"
-          "custom/rd"
+          "custom/bl"
 
-          "custom/lu"
+          "custom/tr"
           "cpu"
           "custom/ar"
           "memory"
           "custom/ar"
           "temperature"
-          "custom/rd"
+          "custom/bl"
 
-          "custom/lu"
+          "custom/tr"
           #"wireplumber"
           "pulseaudio"
           "custom/ar"
           "battery"
           "custom/ar"
           "clock"
-          "custom/rd"
+          "custom/bl"
 
-          "custom/lu"
+          "custom/tr"
           "tray"
         ];
-        "custom/lu" = {
-          format = "";
+        "custom/tr" = {
+          format = ""; # top right
           tooltip = false;
         };
-        "custom/ru" = {
-          format = "";
+        "custom/br" = {
+          format = ""; # bottom right
           tooltip = false;
         };
-        "custom/ld" = {
-          format = "";
+        "custom/tl" = {
+          format = ""; # top left
           tooltip = false;
         };
-        "custom/rd" = {
-          format = "";
+        "custom/bl" = {
+          format = ""; # bottom left
           tooltip = false;
         };
         "custom/archlogo" = {
@@ -96,8 +97,7 @@ in {
             "6" = "";
             "7" = "";
             "8" = "";
-            #"9" = "";
-            "default " = "";
+            "default" = "";
           };
         };
 
@@ -122,7 +122,7 @@ in {
           format = "   {title:100}";
           separate-outputs = false;
           rewrite = {
-            "^$" = "  niri";
+            # "^$" = "   NixOS";
           };
         };
         "tray" = {
@@ -131,7 +131,6 @@ in {
           spacing = 10;
         };
         "clock" = {
-          #timezone = "Asia/ShangHai";
           format = "<span font-family='${f.glyphs.solid}'></span> {:%H:%M}";
           format-alt = "<span font-family='${f.glyphs.solid}'></span> {:%Y-%m-%d}";
           tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
@@ -152,7 +151,10 @@ in {
           critical-threshold = 80;
           tooltip = true;
           format = "{icon} {temperatureC}°C";
-          format-icons = ["" "" ""];
+          format-icons = [""];
+
+          # format = "<span font-family='${f.nerd}'>{icon}</span> {temperatureC}°C";
+          # format-icons = ["" "" ""];
         };
         "battery" = {
           states = {
@@ -171,12 +173,10 @@ in {
           interval = 1;
           format-wifi = " {bandwidthDownBytes}  {bandwidthUpBytes}";
           format-ethernet = " {bandwidthDownBytes}  {bandwidthUpBytes}";
-          # tooltip-format = "\\uf6ff {ifname} via {gwaddr}";
-          tooltip-format = "󰈀 {ifname} via {gwaddr}";
+          tooltip-format = "󰈀  {ifname} via {gwaddr}";
           format-linked = " {ifname} (No IP)";
-          # format-disconnected = "\\uf071 Disconnected";
           format-disconnected = " Disconnected";
-          format-alt = "󰈀 {ifname}: {ipaddr}/{cidr}";
+          format-alt = "󰈀  {ifname}: {ipaddr}/{cidr}";
           # format-wifi = "  {essid} ({signalStrength}%)";
           # format-ethernet = " {ipaddr}/{cidr}";
         };
@@ -207,8 +207,9 @@ in {
         "idle_inhibitor" = {
           format = "{icon}";
           format-icons = {
-            activated = "";
-            deactivated = "";
+            #    
+            activated = " ";
+            deactivated = " ";
           };
         };
       };

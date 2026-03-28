@@ -15,6 +15,7 @@
     userDirs = {
       enable = true;
       createDirectories = false;
+      setSessionVariables = false; # HM 26.05 compat
 
       download = "${config.home.homeDirectory}/spawn";
       documents = "${config.home.homeDirectory}/docsx";
@@ -78,28 +79,15 @@
 
     # pfetch
     PF_INFO = "ascii title os kernel uptime pkgs wm memory";
-
-    ## cpp
-    #CC=/usr/bin/clang
-    #CXX=/usr/bin/clang++
-
-    ## golang
-    #GOPATH=$HOME/d4ta/go
-    #GOBIN=$GOPATH/bin
-    #PATH=$PATH:$GOPATH/bin
-    #
-    #GO111MODULE=auto
-    #GOPROXY=https://goproxy.cn,direct
   };
 
   gtk = {
     enable = true;
     gtk2.extraConfig = "gtk-im-module=\"fcitx\"";
-    gtk3.extraConfig = {
-      gtk-im-module = "fcitx";
-    };
-    gtk4.extraConfig = {
-      gtk-im-module = "fcitx";
+    gtk3.extraConfig.gtk-im-module = "fcitx";
+    gtk4 = {
+      extraConfig.gtk-im-module = "fcitx";
+      theme = null; # HM 26.05 compat
     };
   };
 }

@@ -17,7 +17,7 @@
 
     uid = 1000;
     shell = pkgs.zsh;
-    extraGroups = ["networkmanager" "wheel" "video" "audio" "render"];
+    extraGroups = ["users" "networkmanager" "wheel" "video" "audio" "render"];
 
     hashedPasswordFile = config.age.secrets."user-password".path;
   };

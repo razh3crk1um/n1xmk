@@ -56,8 +56,7 @@
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   programs.clash-verge = {
-    #package = pkgs.clash-verge-rev;
-    package = inputs.nixpkgs-tun-fix.legacyPackages.${pkgs.stdenv.hostPlatform.system}.clash-verge-rev;
+    package = pkgs.clash-verge-rev;
     enable = true;
 
     tunMode = true;

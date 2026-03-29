@@ -1,12 +1,8 @@
 {
   inputs = {
-    #nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
-
+    # nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     # nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-unstable";
-
-    # clash-verge v2.4.3
-    nixpkgs-tun-fix.url = "github:NixOS/nixpkgs/8c809a146a140c5c8806f13399592dbcb1bb5dc4";
 
     disko = {
       url = "github:nix-community/disko";

@@ -1,6 +1,6 @@
 {
   pkgs,
-  inputs,
+  config,
   dna,
   ...
 }: {
@@ -25,7 +25,7 @@
   #  #"net.ipv6.conf.wlo1.disable_ipv6" = 1; # necessary
   #};
 
-  # network & base pkgs
+  # network
   networking = {
     hostName = dna.host;
     #nameservers = [ "127.0.0.1" "::1" ];
@@ -37,13 +37,15 @@
       dns = "none";
     };
 
+    # nftables
     nftables.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [22];
+      allowedTCPPorts = [22 443];
+      allowedUDPPorts = [config.services.tailscale.port];
 
       checkReversePath = false; # 允许非对称路由（核心，防止卡死）
-      trustedInterfaces = ["Mihomo"];
+      trustedInterfaces = ["Mihomo" "tailscale0"];
 
       logRefusedConnections = true;
       rejectPackets = true;
@@ -55,13 +57,11 @@
   boot.kernelModules = ["tun"];
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
+  # clash-verge
   programs.clash-verge = {
-    package = pkgs.clash-verge-rev;
     enable = true;
-
     tunMode = true;
     serviceMode = true;
-    #autoStart = true;
   };
 
   # dnscrypt

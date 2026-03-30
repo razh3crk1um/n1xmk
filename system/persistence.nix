@@ -5,7 +5,6 @@
 }: {
   imports = [inputs.impermanence.nixosModules.impermanence];
 
-  # persist
   fileSystems."/persist" = {
     neededForBoot = true;
   };
@@ -22,6 +21,10 @@
       "/var/lib/bluetooth"
       "/var/lib/NetworkManager"
       "/var/lib/systemd"
+
+      "/var/lib/tailscale"
+      "/var/lib/vaultwarden"
+      "/var/local/vaultwarden"
     ];
 
     files = [

@@ -1,7 +1,6 @@
 {
   pkgs,
   config,
-  lib,
   dna,
   ...
 }: {
@@ -45,27 +44,4 @@
   systemd.tmpfiles.rules = [
     "d /var/local/vaultwarden/backup 0700 vaultwarden vaultwarden -"
   ];
-
-  # tailscale
-  services.tailscale = {
-    enable = true;
-    permitCertUid = "caddy";
-  };
-
-  # Force tailscaled to use nftables (Critical for clean nftables-only systems)
-  systemd.services.tailscaled.serviceConfig.Environment = [
-    "TS_DEBUG_FIREWALL_MODE=nftables"
-  ];
-
-  # candy reverse proxy
-  services.caddy = {
-    enable = true;
-    virtualHosts."${lib.removePrefix "https://" config.services.vaultwarden.config.DOMAIN}".extraConfig = ''
-      encode zstd gzip
-
-      reverse_proxy 127.0.0.1:${toString config.services.vaultwarden.config.ROCKET_PORT} {
-          header_up X-Real-IP {remote_host}
-      }
-    '';
-  };
 }

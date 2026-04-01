@@ -1,10 +1,9 @@
 {
-  pkgs,
+  lib,
   config,
   dna,
   ...
 }: {
-  # cache mirrors list
   nix.settings = {
     substituters = [
       "https://cache.nixos.org"
@@ -12,7 +11,7 @@
     ];
     trusted-public-keys = ["cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="];
 
-    connect-timeout = 5;
+    connect-timeout = 10;
   };
 
   programs.ssh.startAgent = true;
@@ -28,7 +27,7 @@
   # network
   networking = {
     hostName = dna.host;
-    #nameservers = [ "127.0.0.1" "::1" ];
+    #nameservers = [ "127.0.0.1" ];
     nameservers = ["1.1.1.1" "223.5.5.5"];
     enableIPv6 = false;
 
@@ -71,5 +70,32 @@
       server_names = ["cloudflare" "google"];
       listen_addresses = ["127.0.0.1:53"];
     };
+  };
+
+  # tailscale
+  services.tailscale = {
+    enable = true;
+    permitCertUid = "caddy";
+    extraUpFlags = [
+      # manual execution may be required - sudo tailscale up --accept-dns=false
+      "--accept-dns=false"
+    ];
+  };
+
+  # Force tailscaled to use nftables (Critical for clean nftables-only systems)
+  systemd.services.tailscaled.serviceConfig.Environment = [
+    "TS_DEBUG_FIREWALL_MODE=nftables"
+  ];
+
+  # candy reverse proxy
+  services.caddy = {
+    enable = true;
+    virtualHosts."${lib.removePrefix "https://" config.services.vaultwarden.config.DOMAIN}".extraConfig = ''
+      encode zstd gzip
+
+      reverse_proxy 127.0.0.1:${toString config.services.vaultwarden.config.ROCKET_PORT} {
+          header_up X-Real-IP {remote_host}
+      }
+    '';
   };
 }

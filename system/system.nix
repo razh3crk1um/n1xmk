@@ -42,8 +42,9 @@
   # zram
   zramSwap.enable = true;
 
-  # ppd
+  # battery: ppd & upower
   services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
 
   # ssd
   services = {

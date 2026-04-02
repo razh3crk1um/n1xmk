@@ -30,6 +30,7 @@ in {
 
         # --- monitor ---
         btop
+        dig
         pcmanfm
         ncdu
         trash-cli
@@ -90,15 +91,6 @@ in {
         fastfetch
         rose-pine-cursor
         adwaita-icon-theme
-
-        #pciutils
-        #usbutils
-
-        #xray
-        #sing-box
-        #v2rayn
-        #v2ray-geoip
-        #v2ray-domain-list-community
       ]
       ++ (builtins.attrValues scripts);
   };
@@ -106,28 +98,23 @@ in {
   programs.home-manager.enable = true;
 
   imports = [
-    ./zsh
-    ./xorg
-    ./niri
-    ./waybar
-    ./vim
     ./alacritty
-    ./ghostty
-    ./tmux
-    ./mako
-    ./yazi
-    ./mpd
-    ./rmpc
-    ./ncmpcpp
-    ./fuzzel
+    ./cava
     ./fcitx
     ./firefox
-    ./hypridle
-    ./cava
+    ./fuzzel
+    ./ghostty
+    ./mako
     ./misc
-
-    #./ranger
-    #./zellij
-    #./hypr
+    ./mpd
+    ./niri
+    ./rmpc
+    ./swayidle
+    ./tmux
+    ./vim
+    ./waybar
+    ./xorg
+    ./yazi
+    ./zsh
   ];
 }

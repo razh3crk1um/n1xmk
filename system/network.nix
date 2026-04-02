@@ -14,20 +14,10 @@
     connect-timeout = 10;
   };
 
-  programs.ssh.startAgent = true;
-
-  # disable ipv6
-  #boot.kernel.sysctl = {
-  #  "net.ipv6.conf.all.disable_ipv6" = 1;
-  #  "net.ipv6.conf.default.disable_ipv6" = 1;
-  #  #"net.ipv6.conf.lo.disable_ipv6" = 1;
-  #  #"net.ipv6.conf.wlo1.disable_ipv6" = 1; # necessary
-  #};
-
   # network
+  services.resolved.enable = false;
   networking = {
     hostName = dna.host;
-    #nameservers = [ "127.0.0.1" ];
     nameservers = ["1.1.1.1" "223.5.5.5"];
     enableIPv6 = false;
 
@@ -50,7 +40,6 @@
       rejectPackets = true;
     };
   };
-  services.resolved.enable = false;
 
   # proxy
   boot.kernelModules = ["tun"];
@@ -61,15 +50,7 @@
     enable = true;
     tunMode = true;
     serviceMode = true;
-  };
-
-  # dnscrypt
-  services.dnscrypt-proxy = {
-    enable = false;
-    settings = {
-      server_names = ["cloudflare" "google"];
-      listen_addresses = ["127.0.0.1:53"];
-    };
+    autoStart = true;
   };
 
   # tailscale
@@ -98,4 +79,21 @@
       }
     '';
   };
+
+  # # disable ipv6
+  # boot.kernel.sysctl = {
+  #  "net.ipv6.conf.all.disable_ipv6" = 1;
+  #  "net.ipv6.conf.default.disable_ipv6" = 1;
+  #  # "net.ipv6.conf.lo.disable_ipv6" = 1;
+  #  # "net.ipv6.conf.wlo1.disable_ipv6" = 1; # necessary
+  # };
+
+  # # dnscrypt
+  # services.dnscrypt-proxy = {
+  #   enable = true;
+  #   settings = {
+  #     server_names = ["cloudflare" "google"];
+  #     listen_addresses = ["127.0.0.1:53"];
+  #   };
+  # };
 }

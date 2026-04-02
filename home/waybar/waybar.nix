@@ -3,6 +3,7 @@
 in {
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     settings = {
       mainBar = {
         layer = "top";
@@ -14,7 +15,6 @@ in {
 
         modules-left = [
           "idle_inhibitor"
-          #"custom/archlogo"
           "custom/tl"
 
           "custom/br"
@@ -23,7 +23,6 @@ in {
         ];
         modules-center = [
           "custom/tr"
-          #"idle_inhibitor"
           "mpd"
           "custom/tl"
 
@@ -173,8 +172,8 @@ in {
           interval = 1;
           format-wifi = " {bandwidthDownBytes}  {bandwidthUpBytes}";
           format-ethernet = " {bandwidthDownBytes}  {bandwidthUpBytes}";
-          tooltip-format = "󰈀  {ifname} via {gwaddr}";
-          format-linked = " {ifname} (No IP)";
+          tooltip-format = "󱂇  {ifname} via {gwaddr}";
+          format-linked = "󱘖 {ifname} (No IP)";
           format-disconnected = " Disconnected";
           format-alt = "󰈀  {ifname}: {ipaddr}/{cidr}";
           # format-wifi = "  {essid} ({signalStrength}%)";

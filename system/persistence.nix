@@ -36,8 +36,9 @@
         ".ssh"
         ".pki"
         ".gnupg"
-        ".config"
         ".local"
+        ".config"
+        ".android"
 
         ".tmux"
         ".steam"

@@ -30,7 +30,7 @@
     nftables.enable = true;
     firewall = {
       enable = true;
-      allowedTCPPorts = [22 443];
+      allowedTCPPorts = [22 443 53317]; # localsend-53317
       allowedUDPPorts = [config.services.tailscale.port];
 
       checkReversePath = false; # 允许非对称路由（核心，防止卡死）

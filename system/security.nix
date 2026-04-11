@@ -7,6 +7,9 @@
   # debug backdoor
   #users.users.root.initialHashedPassword = "$y$j9T$gsK6pYXkB54eM0QPpDhOI.$MubliTo.8oEqwm4eyAnNAt3yDpclJSmn4w55elsUlw5";
 
+  # CVE-2026-39860
+  nix.settings.allowed-users = ["root" "${dna.user}"];
+
   users.mutableUsers = false;
   users.users.root.hashedPasswordFile = config.age.secrets."root-password".path;
 

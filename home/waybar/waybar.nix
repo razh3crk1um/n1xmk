@@ -111,9 +111,9 @@ in {
           tooltip-format = "{stateIcon} {filename}";
           tooltip-format-disconnected = "mpd (disconnected)";
 
-          on-click = "mpc toggle";
-          on-click-right = "mpc next";
-          on-click-middle = "mpc prev";
+          on-click = "mpc -q toggle";
+          on-click-right = "mpc -q next";
+          on-click-middle = "mpc -q prev";
           max-length = 30;
         };
         # 󱄅    󰭩  󰴑  󰓹
@@ -173,8 +173,8 @@ in {
           format-wifi = " {bandwidthDownBytes}  {bandwidthUpBytes}";
           format-ethernet = " {bandwidthDownBytes}  {bandwidthUpBytes}";
           tooltip-format = "󱂇  {ifname} via {gwaddr}";
-          format-linked = "󱘖 {ifname} (No IP)";
-          format-disconnected = " Disconnected";
+          format-linked = "󱘖 {ifname} (no ip)";
+          format-disconnected = " disconnected";
           format-alt = "󰈀  {ifname}: {ipaddr}/{cidr}";
           # format-wifi = "  {essid} ({signalStrength}%)";
           # format-ethernet = " {ipaddr}/{cidr}";

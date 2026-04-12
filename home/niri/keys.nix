@@ -6,9 +6,9 @@
     # mpc
     mpc-status = "mpc status | grep -q 'playing' && echo '▶ 正在播放' || echo '⏸ 已暂停'";
     mpc-title = "mpc current -f %file% | sed 's|.*/||; s/\\.[^.]*$//'";
-    #mpc_title = "mpc current -f %file% | sed 's|.*/||'"; # with extension
+    # mpc-title-full = "mpc current -f %file% | sed 's|.*/||'"; # with extension
     mpc-notify = "notify-send \"$(${mpc-status})\" \"$(${mpc-title})\"";
-    mpc-toggle-notify = "mpc toggle && ${mpc-notify}";
+    mpc-toggle-notify = "mpc -q toggle && ${mpc-notify}";
 
     # wireplumber
     #volume-up = spawn ["wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%+"];
@@ -35,8 +35,8 @@
     "super+control+semicolon".action = volume-mute;
     "super+f11".action = brightness-down;
     "super+shift+f11".action = brightness-up;
-    "super+e".action = spawn ["mpc" "next"];
-    "super+shift+semicolon".action = spawn ["mpc" "prev"];
+    "super+e".action = spawn ["mpc" "-q" "next"];
+    "super+shift+semicolon".action = spawn ["mpc" "-q" "prev"];
     "super+shift+e".action = spawn-sh mpc-toggle-notify;
     "super+space".action = spawn-sh mpc-toggle-notify;
     "super+shift+d".action = spawn-sh mpc-notify;
@@ -49,8 +49,8 @@
     "super+grave".action = toggle-overview;
     "super+f".action = fullscreen-window;
     "super+shift+f".action = toggle-window-floating;
-    "super+p".action = switch-focus-between-floating-and-tiling;
-    "super+shift+p".action = toggle-column-tabbed-display;
+    "super+q".action = switch-focus-between-floating-and-tiling;
+    "super+shift+q".action = toggle-column-tabbed-display;
 
     "super+f5".action = spawn-sh "loginctl lock-session && sleep 0.2 && systemctl suspend";
     "super+shift+f5".action = spawn ["loginctl" "lock-session"];

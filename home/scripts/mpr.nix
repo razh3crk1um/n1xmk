@@ -17,6 +17,6 @@ pkgs.writeShellApplication {
     mpc play
     mpc toggle
 
-    notify-send -u normal "歌单更新成功" "ncmpcpp"
+    notify-send -u normal "歌单更新成功" "Music Player Daemon"
   '';
 }

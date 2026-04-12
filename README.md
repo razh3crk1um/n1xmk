@@ -22,8 +22,8 @@ my declarative nixos & home manager configurations.
 - **file & editor**  
 [**yazi**](./home/yazi) · [**ranger**](./home/ranger) · [**vim**](./home/vim) 
 
-- **music & media**  
-[**mpd**](./home/mpd) · [**ncmpcpp**](./home/ncmpcpp) · [**rmpc**](./home/rmpc) · [**cava**](./home/cava)
+- **media**  
+[**mpv**](./home/mpv) · [**mpd**](./home/mpd) · [**rmpc**](./home/rmpc) · [**ncmpcpp**](./home/ncmpcpp) · [**cava**](./home/cava)
 
 - **apps & logic**  
 [**fcitx**](./home/fcitx) · [**firefox**](./home/firefox) · [**scripts**](./home/scripts)

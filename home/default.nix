@@ -43,7 +43,6 @@ in {
         bottles
         localsend
         brave
-
         aria2
         yt-dlp
 
@@ -71,8 +70,6 @@ in {
 
         # --- media viewer ---
         imv
-        mpv
-        mpc
         zathura
         lx-music-desktop
 
@@ -107,6 +104,7 @@ in {
     ./mako
     ./misc
     ./mpd
+    ./mpv
     ./niri
     ./rmpc
     ./swayidle

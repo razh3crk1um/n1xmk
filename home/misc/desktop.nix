@@ -1,6 +1,7 @@
 {
   pkgs,
   config,
+  inputs,
   ...
 }: {
   programs.bash.historyFile = "${config.xdg.dataHome}/bash/.bash_history";
@@ -69,6 +70,7 @@
     XKB_DEFAULT_LAYOUT = "us";
     XKB_DEFAULT_VARIANT = "dvorak";
     WEBKIT_DISABLE_COMPOSITING_MODE = "1";
+    QML2_IMPORT_PATH = "${inputs.qml-niri.packages.${pkgs.stdenv.hostPlatform.system}.default}/lib/qt-6/qml";
 
     # fcitx5
     XMODIFIERS = "@im=fcitx";

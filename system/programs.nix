@@ -7,6 +7,7 @@
     git
     vim
     inputs.agenix.packages."x86_64-linux".default
+    inputs.qml-niri.packages.${pkgs.stdenv.hostPlatform.system}.default
     #inputs.nixpkgs-tun-fix.legacyPackages.${pkgs.stdenv.hostPlatform.system}.clash-verge-rev
   ];
 

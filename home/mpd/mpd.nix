@@ -4,6 +4,7 @@
   ...
 }: {
   home.packages = [pkgs.mpc];
+  services.mpd-mpris.enable = true;
 
   services.mpd = {
     enable = true;

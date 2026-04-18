@@ -14,7 +14,7 @@ my declarative nixos & home manager configurations.
 [**ghostty**](./home/ghostty) · [**alacritty**](./home/alacritty) · [**tmux**](./home/tmux) · [**zellij**](./home/zellij) · [**zsh**](./home/zsh)
 
 - **window management**  
-[**niri**](./home/niri) · [**waybar**](./home/waybar) · [**xorg**](./home/xorg) 
+[**niri**](./home/niri) · [**quickshell**](./home/quickshell) · [**waybar**](./home/waybar) · [**xorg**](./home/xorg) 
 
 - **desktop services**  
 [**swayidle**](./home/swayidle) · [**mako**](./home/mako) · [**fuzzel**](./home/fuzzel) · [**misc**](./home/misc)

@@ -1,0 +1,2 @@
+singleton NiriService 1.0 NiriService.qml
+singleton NotifService 1.0 NotifService.qml

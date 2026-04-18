@@ -101,16 +101,15 @@ in {
     ./firefox
     ./fuzzel
     ./ghostty
-    ./mako
     ./misc
     ./mpd
     ./mpv
     ./niri
+    ./quickshell
     ./rmpc
     ./swayidle
     ./tmux
     ./vim
-    ./waybar
     ./xorg
     ./yazi
     ./zsh

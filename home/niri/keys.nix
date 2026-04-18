@@ -40,7 +40,8 @@
     "super+shift+e".action = spawn-sh mpc-toggle-notify;
     "super+space".action = spawn-sh mpc-toggle-notify;
     "super+shift+d".action = spawn-sh mpc-notify;
-    "super+d".action = spawn-sh "cliphist list | fuzzel --dmenu --lines 20 --width 75 | cliphist decode | wl-copy";
+    "super+d".action = spawn ["qs" "ipc" "call" "notif" "toggleNotifCenter"];
+    "super+t".action = spawn-sh "cliphist list | fuzzel --dmenu --lines 20 --width 75 | cliphist decode | wl-copy";
 
     "super+u".action.screenshot = [];
     "super+shift+u".action.screenshot-window = {write-to-disk = true;};
